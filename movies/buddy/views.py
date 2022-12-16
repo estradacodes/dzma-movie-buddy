@@ -37,7 +37,7 @@ def getBuddyMovieDetails(user_list):
     return movie_list
 
 def movieDetails(request, movie_id):
-    base_url='https://api.themoviedb.org/3/movie/{}{}'.format(movie_id, "?api_key=932dd701ae6b5cbb7213372043e188f0&language=en-US")
+    base_url='https://api.themoviedb.org/3/movie/{}?api_key={}&language=en-US'.format(movie_id, env('API_KEY'))
     movie_details = requests.get(base_url)
     trailer_url='https://api.themoviedb.org/3/movie/{}/videos?api_key={}&language=en-US'.format(movie_id, env('API_KEY'))
     trailer = requests.get(trailer_url)
